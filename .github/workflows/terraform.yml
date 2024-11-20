@@ -25,7 +25,7 @@ jobs:
       - name: info of rep context
         run: echo "{{ toJson(github)}}"
       - name: install terraform
-        uses: hashicorp/setup-terrfaorm@v2
+        uses: hashicorp/setup-terraform@v2
         with:
           terrfaorm_version: latest
       - name: info of job
