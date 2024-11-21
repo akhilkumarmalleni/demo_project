@@ -1,0 +1,40 @@
+name: stages-workflow
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: get code
+        uses: actions/checkout@v3
+      - name: upload artificats
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifff
+      - name: info of data context
+        run: echo "{{ toJson(github)}}"
+      - name: install terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terrform_version: latest
+      - name: info of job
+        run: echo "completed build"
+  apply:
+    name: apply
+    runs-on: ubuntu-latest
+    needs: build
+    environment: dev
+    steps:
+      - name: get-code
+        uses: actions/checkout@v3
+      - name: info of rep context
+        run: echo "{{ toJson(github)}}"
+      - name: install terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terrfaorm_version: latest
+      - name: info of job
+        run: echo "applied"
+      
+    
