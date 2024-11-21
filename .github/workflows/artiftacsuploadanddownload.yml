@@ -12,6 +12,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: artifff
+          path: art.txt
       - name: info of data context
         run: echo "{{ toJson(github)}}"
       - name: install terraform
