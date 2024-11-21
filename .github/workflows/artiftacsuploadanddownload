@@ -18,6 +18,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terrform_version: latest
+          terraform_wrapper: false
       - name: info of job
         run: echo "completed build"
   apply:
@@ -34,6 +35,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terrfaorm_version: latest
+          terraform_wrapper: false
       - name: info of job
         run: echo "applied"
       
