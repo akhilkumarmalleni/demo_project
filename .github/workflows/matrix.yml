@@ -6,7 +6,7 @@ jobs:
   init-job:
     strategy:
       matrix:
-        opertaing-systems: [ubuntu-latest, windows-latest]
+        opertaing-system: [ubuntu-latest, windows-latest]
     
     runs-on: ${{ matrix.operating-system }}
     steps:
