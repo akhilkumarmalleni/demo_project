@@ -1,0 +1,9 @@
+name: resuable_workflow
+on: workflow_call
+jobs:
+  init-job:
+    name: init
+    runs-on: ubuntu-latest
+    steps:
+    - name: get-code
+      run: echo "got the code"
