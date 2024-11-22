@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     # if we use if condtion can make steps and jobs to skip as per the status like failure or success or cancelled
-    # this job level if condition so it will all job from here onwards all jobs will be skipped
+    # this is job level, if condition so it will all job from here onwards all jobs will be skipped
     #if: failure()
     steps:
       - name: intsall-terraform
@@ -42,7 +42,7 @@ jobs:
       - name: validate
         run: terrform validate
         id: validate
-       # if: failure()
+        if: failure()
   plan-job:
     name: plan
     runs-on: ubuntu-latest
