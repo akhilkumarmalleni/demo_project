@@ -1,0 +1,55 @@
+name: test_workflow_on_events
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    types:
+      created
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+
+  init:
+    name: init-job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get-code
+        uses: "actions/checkout@v2"
+      - name: code-status
+        run: echo "code was downloaded"
+      - name: install terraform
+        uses: "hashicorp/setup-terraform@v3"
+        with:
+          terraform_version: latest
+          terraform_wrapper: false
+  validate:
+    name: validate
+    runs-on: windows-latest
+    needs: init
+
+    steps:
+      - name: get-code
+        uses: "actions/checkout@v2"
+      - name: code-status
+        run: echo "code was downloaded"
+      - name: terraform-validate
+        id: validate
+        run: terraform vlaidate
+  plan:
+    name: plan
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: get-code
+        uses: "actions/checkout@v2"
+      - name: plan
+        run: terrform plan
+        id: plan
+    
+    
+        
