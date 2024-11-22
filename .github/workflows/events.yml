@@ -1,14 +1,14 @@
 name: test_workflow_on_events
 on:
-  push:
-    branches:
-      - main
-      - dev
-  pull_request:
-    types:
-      created
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+  #     - dev
+  # pull_request:
+  #   types:
+  #     created
+  #   branches:
+  #     - main
   workflow_dispatch:
   # environment: dev ---> it can not be used under events
 jobs:
@@ -36,6 +36,8 @@ jobs:
     name: validate
     runs-on: windows-latest
     needs: init
+    # the continue-on-error will use to make skip errors and make run next jobs and steps
+    # it can be used steps and jobs level
     continue-on-error: true
     
 
