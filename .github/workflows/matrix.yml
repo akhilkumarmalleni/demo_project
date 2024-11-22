@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         opertaing-systems: [ubuntu-latest, windows-latest]
-    name: init
+    
     runs-on: ${{ matrix.operating-systems }}
     steps:
       - name: get_code
