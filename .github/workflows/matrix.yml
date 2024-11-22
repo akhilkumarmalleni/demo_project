@@ -4,12 +4,14 @@ on: [push, workflow_dispatch]
 jobs:
   
   init-job:
-    # strategy:
-    #   matrix:
-    #     opertaing-system: [ubuntu-latest, windows-latest]
+    strategy:
+      matrix:
+        opertaing-system: [ubuntu-latest, windows-latest]
     
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: get_code
         uses: "actions/checkout@v2"
+      - name: code-status
+        run: echo "code was downloaded"
         
