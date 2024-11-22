@@ -16,6 +16,7 @@ jobs:
   init:
     name: init-job
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
       - name: get-code
