@@ -10,13 +10,13 @@ on:
     branches:
       - main
   workflow_dispatch:
-
+  # environment: dev ---> it can not be used under events
 jobs:
 
   init:
     name: init-job
     runs-on: ubuntu-latest
-    environment: dev
+    # environment: dev
 
     steps:
       - name: get-code
@@ -31,11 +31,13 @@ jobs:
       - name: init
         run: terraform init
       
+      
   validate:
     name: validate
     runs-on: windows-latest
     needs: init
-    continue-on-error: true
+    #continue-on-error: true
+    
 
     steps:
       - name: get-code
@@ -45,6 +47,7 @@ jobs:
       - name: terraform-validate
         id: validate
         run: terraform vlaidate
+        continue-on-error: false
   plan:
     name: plan
     runs-on: ubuntu-latest
