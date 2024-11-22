@@ -33,6 +33,8 @@ jobs:
     # if we use if condtion can make steps and jobs to skip as per the status like failure or success or cancelled
     # this is job level, if condition so it will all job from here onwards all jobs will be skipped
     #if: failure()
+    # if means skip the job or step
+    # continue-on-error means it will get erroe and move to another job or run
     steps:
       - name: intsall-terraform
         uses: "hashicorp/setup-terraform@v2"
