@@ -8,7 +8,7 @@ jobs:
     #   matrix:
     #     opertaing-system: [ubuntu-latest, windows-latest]
     
-    runs-on: ubuntu-latest   #${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
     steps:
       - name: get_code
         uses: "actions/checkout@v2"
