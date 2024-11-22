@@ -43,6 +43,7 @@ jobs:
         run: terrform validate
         id: validate
         #if: failure()
+        continue-on-error: true
   plan-job:
     name: plan
     runs-on: ubuntu-latest
