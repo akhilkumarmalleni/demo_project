@@ -1,5 +1,5 @@
 name: matrix_workflow
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   
@@ -8,7 +8,7 @@ jobs:
       matrix:
         opertaing-systems: [ubuntu-latest, windows-latest]
     
-    runs-on: ${{ matrix.operating-systems }}
+    runs-on: ${{ matrix.operating-system }}
     steps:
       - name: get_code
         uses: "actions/checkout@v2"
