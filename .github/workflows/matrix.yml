@@ -4,9 +4,9 @@ on: [push, workflow_dispatch]
 jobs:
   
   init-job:
-    strategy:
-      matrix:
-        opertaing-system: [ubuntu-latest, windows-latest]
+    # strategy:
+    #   matrix:
+    #     opertaing-system: [ubuntu-latest, windows-latest]
     
     runs-on: ${{ matrix.operating-system }}
     steps:
