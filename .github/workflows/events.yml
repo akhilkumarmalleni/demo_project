@@ -27,6 +27,9 @@ jobs:
         with:
           terraform_version: latest
           terraform_wrapper: false
+      - name: init
+        run: terraform init
+      
   validate:
     name: validate
     runs-on: windows-latest
