@@ -29,6 +29,7 @@ jobs:
     name: validate
     needs: init_job
     runs-on: ubuntu-latest
+    if: failure()
     steps:
       - name: intsall-terraform
         uses: "hashicorp/setup-terraform@v2"
