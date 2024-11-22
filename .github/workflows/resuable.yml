@@ -7,3 +7,5 @@ jobs:
     steps:
     - name: get-code
       run: echo "got the code"
+    - name: name
+      run: echo "this was run and print from another workflow which is triggered"
